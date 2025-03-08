@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Tus Acciones Compradas</h1>
+
+    {% if acciones_compradas %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre Empresa</th>
+                <th>Cantidad de Acciones</th>
+                <th>Precio Actual</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for accion, datos in acciones_compradas.items %}
+            <tr>
+                <td>{{ datos.nombre_empresa }}</td>
+                <td>{{ datos.cantidad }}</td>
+                <td>${{ datos.precio_actual }}</td>
+                <td>
+                    <a href="{% url 'vender_accion' accion.id %}" class="btn btn-danger">Vender</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No has comprado ninguna acción todavía.</p>
+    {% endif %}
+    
+    <div class="mt-3">
+        <a href="{% url 'indice' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}

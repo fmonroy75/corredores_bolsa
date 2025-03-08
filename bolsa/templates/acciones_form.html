@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}{% load crispy_forms_tags %}
+
+{% block content %}
+  <h2>{% if curso %}Editar{% else %}Crear{% endif %} Accion</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form | crispy}}  <!-- Formulario con los campos del curso -->
+    </div>
+    <button type="submit" class="btn btn-success">
+      {% if curso %}Guardar cambios{% else %}Crear Accion{% endif %}
+    </button>
+  </form>
+
+  <a href="{% url 'accion_list' %}" class="btn btn-secondary mt-2">Volver a la lista</a>
+{% endblock %}

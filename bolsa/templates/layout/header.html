@@ -1,0 +1,16 @@
+{% load static %}
+<header>
+  {% if user.is_authenticated %}
+  <div class="container">
+    <img id="logo" src="{% static 'img/logo.png' %}" alt="logo" />
+    <h1 class="display-4" id="header-title">
+      {{ user.first_name }}, Bienvenido 
+    </h1>
+  </div>
+  {% else %}
+  <div class="container">
+    <img id="logo" src="{% static 'img/logo.png' %}" alt="logo" />
+    <h1 class="display-4" id="header-title">Bienvenido </h1>
+  </div>
+  {% endif %}
+</header>

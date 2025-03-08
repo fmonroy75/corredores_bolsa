@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Historial de Transacciones</h1>
+
+    {% if transacciones %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tipo de Transacción</th>
+                <th>Acción</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaccion in transacciones %}
+            <tr>
+                <td>{{ transaccion.tipo_transaccion }}</td>
+                <td>{{ transaccion.accion_id.nombre_empresa }}</td>
+                <td>{{ transaccion.cantidad }}</td>
+                <td>${{ transaccion.Precio }}</td>
+                <td>{{ transaccion.fecha_transaccion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No tienes transacciones en tu historial.</p>
+    {% endif %}
+    
+    <div class="mt-3">
+        <a href="{% url 'indice' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}

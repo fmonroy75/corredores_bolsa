@@ -1,0 +1,63 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">indexlogin</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+
+
+          {% if user.is_authenticated %}
+            {% if request.session.tipousuario == "admin" %} 
+                <li>
+                  <a class="nav-link nav-link-custom" href="\acciones">Acciones</a>
+                </li>             
+                <li>
+                  <!--<a class="nav-link nav-link-custom" href="\misdatos"
+                >--><span class="nav-link nav-link-custom">{{ user.get_username }}</span><!--</a>-->
+                </li>
+            {% elif request.session.tipousuario == "regular" %}  
+                <li>
+                  <a class="nav-link nav-link-custom" href="{% url 'historial_transacciones' %}">Historial de TRXs</a>
+                </li>  
+                <li>
+                  <a class="nav-link nav-link-custom" href="{% url 'listar_acciones' %}">Comprar Acciones</a>
+                </li>   
+                <li>
+                  <a class="nav-link nav-link-custom" href="{% url 'acciones_compradas' %}">Vender Acciones</a>
+                </li>             
+                <li>
+                  <a class="nav-link nav-link-custom" href="\misdatos">{{ user.get_username }}</a>
+                </li>            
+            {% endif %} 
+          <li class="nav-item">
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+          </li>
+  
+          {% else %}
+          <li class="nav-item">
+            <!--<a class="nav-link" href="{ % url 'registro' % }">Regístrate</a>-->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="/accounts/login/"
+              >Login/Registro</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

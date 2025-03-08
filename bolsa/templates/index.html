@@ -1,0 +1,227 @@
+{% extends 'layout/base.html' %} {% block content %}
+
+{% load static %}
+
+
+    <!-- Carrusel -->
+    <div id="flanCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#flanCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#flanCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#flanCarousel"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="{% static 'img/HS/1.jpg' %}"
+            class="d-block w-100"
+            alt="Flan de vainilla"
+          />
+          <div class="carousel-caption">
+            <h5>¡Encuentra tu hogar ideal con nosotros!</h5>
+            <p>
+              Propiedades en arriendo a solo un clic de distancia!
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="{% static 'img/HS/2.jpg' %}"
+            class="d-block w-100"
+            alt="Flan de chocolate"
+          />
+          <div class="carousel-caption">
+            <h5>¡Donde tus sueños de vivir se hacen realidad!</h5>
+            <p>
+              Alquila con facilidad y seguridad
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="{% static 'img/HS/3.jpg' %}"
+            class="d-block w-100"
+            alt="Flan de caramelo"
+          />
+          <div class="carousel-caption">
+            <h5>¡El lugar perfecto te está esperando!</h5>
+            <p>
+               Arrienda hoy y descubre tu próximo hogar!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#flanCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#flanCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+
+    <!-- Sección de Bienvenida -->
+    <div class="welcome-section py-5 bg-light">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="display-4 mb-4">
+                        Deux Propiedades: Soluciones para Todos 🏠✨
+                    </h2>
+                    <p class="fw-bold fs-5">
+                        La plataforma que conecta arrendadores y arrendatarios de manera inteligente.
+                    </p>
+                    
+                    <h3 class="mt-5 mb-4">Ventajas para Arrendatarios</h3>
+                    <div class="row mb-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-cash-coin text-primary fs-1 mb-3"></i>
+                                    <h5 class="card-title">Flexibilidad Financiera</h5>
+                                    <p class="card-text">Evita grandes inversiones iniciales y mantén tu capital libre para otras oportunidades.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-arrow-repeat text-primary fs-1 mb-3"></i>
+                                    <h5 class="card-title">Movilidad sin Límites</h5>
+                                    <p class="card-text">Cambia de ubicación con facilidad sin el compromiso de una hipoteca.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-shield-check text-primary fs-1 mb-3"></i>
+                                    <h5 class="card-title">Sin Preocupaciones</h5>
+                                    <p class="card-text">Olvídate de reparaciones costosas y mantenimiento a largo plazo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-5 mb-4">Ventajas para Arrendadores</h3>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-graph-up text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Ingreso Pasivo Estable</h5>
+                                    <p class="card-text">Genera un flujo de ingresos mensual constante sin complicaciones adicionales.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-shield-lock text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Gestión Segura</h5>
+                                    <p class="card-text">Verificación de inquilinos, contratos legales y soporte integral en la plataforma.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-building text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Valorización de Propiedades</h5>
+                                    <p class="card-text">Mantén tus propiedades ocupadas y en buen estado con inquilinos calificados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <a href="{% url 'registro' %}" class="btn btn-primary btn-lg shadow-lg px-5 py-3">
+                            Únete a Deux Propiedades
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% comment %} <h1>Últimos Inmuebles Registrados</h1>
+<div class="inmuebles">
+    {% for item in inmuebles_con_imagenes %}
+    <div class="inmueble">
+        <h2>{{ item.inmueble.nombre }}</h2>
+        {% if item.imagen %}
+        <img src="{{ item.imagen.url }}" alt="Imagen de {{ item.inmueble.nombre }}">
+        {% else %}
+        <p>Sin imagen disponible</p>
+        {% endif %}
+        <p>Ciudad: {{ item.ciudad }}</p>
+        <p>Descripción: {{ item.descripcion }}</p>
+      </div>
+    {% endfor %}
+</div> {% endcomment %}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Inmuebles Disponibles</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in inmuebles_con_imagenes %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if item.imagen %}
+                    <img src="{{ item.imagen.imagen.url }}" class="card-img-top" alt="Imagen de {{ item.inmueble.nombre }}" style="height: 250px; object-fit: cover;">
+                {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                        <p class="text-muted">Sin imagen disponible</p>
+                    </div>
+                {% endif %}
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.inmueble.nombre }}</h5>
+                    <p class="card-text text-muted">
+                        <strong>Ciudad:</strong> {{ item.ciudad }}<br>
+                        <strong>Descripción:</strong> {{ item.descripcion|truncatewords:20 }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-primary">{{ item.inmueble.tipo_inmueble.nombre }}</span>
+                        <small class="text-muted">{{ item.inmueble.precio }} {{ item.inmueble.moneda }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">
+                No se encontraron inmuebles registrados.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+    {% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Mensajes -->
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Título -->
+    <h1 class="mb-4">Comprar Acciones: {{ accion.nombre_empresa }}</h1>
+
+    <!-- Detalles de la Acción -->
+    <p><strong>Precio Actual:</strong> ${{ accion.precio_actual }}</p>
+    <p><strong>Saldo Disponible:</strong> ${{ perfil.saldo }}</p>
+
+    <!-- Formulario -->
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" class="form-control" min="1" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Comprar</button>
+    </form>
+
+    <!-- Botón Volver -->
+    <div class="mt-3">
+        <a href="{% url 'indice' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}

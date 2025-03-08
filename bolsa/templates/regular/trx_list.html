@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+
+  <h2 class="my-4">Lista de Cursos</h2>
+
+  <!-- Tabla de cursos -->
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Relator</th>
+            <th>Ayudante</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.nombre }}</td>
+            <td>{% if curso.relator %}{{ curso.relator.user.username }}- {{ curso.relator.user.last_name  }},{{ curso.relator.user.first_name  }} {% else %}N/A{% endif %}</td>
+            <td>{% if curso.ayudante %}{{ curso.ayudante.user.username }}- {{ curso.ayudante.user.last_name  }},{{ curso.ayudante.user.first_name  }}{% else %}N/A{% endif %}</td>
+            <td>
+                <a href="{% url 'list_modulos_rel' curso.id %}" class="btn btn-warning btn-sm">Modulos</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

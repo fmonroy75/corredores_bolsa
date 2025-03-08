@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+
+  <h2 class="my-4">Lista de Acciones</h2>
+
+  <!-- Tabla de cursos -->
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Simbolo</th>
+            <th>Empresa</th>
+            <th>Precio</th>
+            <th>Cambio Porc</th>
+            <th>Ult. Actualizacion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for acc in accion %}
+        <tr>
+            <td>{{ acc.simbolo }}</td>
+            <td>{{ acc.nombre_empresa }}</td>
+            <td>{{ acc.precio_actual }}</td>
+            <td>{{ acc.cambio_porcentual }}</td>
+            <td>{{ acc.fecha_actualizacion }}</td>
+            <td>
+                <a href="{% url 'edit_acciones' acc.id %}" class="btn btn-warning btn-sm">Modificar</a>
+                <a href="{% url 'delete_acciones' acc.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta accion?')">Eliminar</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+  <a href="{% url 'create_acciones' %}" class="btn btn-success">Crear Acciones</a>
+{% endblock %}
